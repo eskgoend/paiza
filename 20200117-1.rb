@@ -1,15 +1,27 @@
 def fizzbuzz(num)
   if num % 3 == 0 && num % 5 == 0
-    puts 'Fizz Buzz'
+    'Fizz Buzz'
   elsif num % 3 == 0
-    puts 'Fizz'
+    'Fizz'
   elsif num % 5 == 0
-    puts 'Buzz'
+    'Buzz'
   else
-    puts num
+    num.to_s
   end
 end
 
-puts '数字を入力してください'
-input_num = gets.chomp.to_i
-fizzbuzz(input_num)
+# fizzbuzz(3)
+
+# # puts '数字を入力してください'
+# # input_num = gets.chomp.to_i
+# # fizzbuzz(input_num)
+
+require 'minitest/autorun'
+
+class FizzBuzzTest < Minitest::Test
+  def test_fizzbuzz
+    assert_equal 'Fizz', fizzbuzz(3)
+    assert_equal '1', fizzbuzz(1)
+    assert_equal '2', fizzbuzz(2)
+  end
+end
